@@ -11,7 +11,7 @@ import statsmodels.api as sm
 import pygsheets
 
 ## Data preparation
-gc = pygsheets.authorize(service_account_file='hackthon-396711-57515e0c836f.json')
+gc = pygsheets.authorize(service_account_file='certification/hackthon-396711-57515e0c836f.json')
 survey_key = '1lwyWwhDdzcbvOCVUzKuJac8oRRysWfScTdOHfzXsTME'
 sh = gc.open_by_key(survey_key)
 ws = sh.worksheet_by_title('工作表1')
