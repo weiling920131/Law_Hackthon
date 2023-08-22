@@ -1,0 +1,9 @@
+{% load index %}
+<p>程度(0~10)：</p>
+{% for i in all %}
+    {% if i in checked %}
+        <input class="form__field" name="score_{{i}}" value="{{ score|index:i }}">
+    {% else %}
+        <input class="form__field" name="score_{{i}}" value="0" disabled>
+    {% endif %}
+{% endfor %}

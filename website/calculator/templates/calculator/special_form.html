@@ -1,0 +1,39 @@
+{% if sf == 'close' %}
+<input type="hidden" name="sf" value="open">
+<form class="form__contact" id="s" style="width: 1070px;">{% csrf_token %}
+    <div class="wrapper-fieldset">
+        <fieldset class="form__contact1" style="width: 720px;" hx-post="special_score" hx-target="#score" hx-include="#s">
+            <p>追加特殊因素</p>
+            <input type="checkbox" name="special" value="0"> a. 對方對財產增加無貢獻 <br>
+            <input type="checkbox" name="special" value="1"> b. 對方對婚姻中取得之財產有協力貢獻 <br>
+            <input type="checkbox" name="special" value="2"> c. 對方為減少其自身財產所為之變更 <br>
+            <input type="checkbox" name="special" value="3"> d. 對方浪費、不當處分財產之情事 <br>
+            <input type="checkbox" name="special" value="4"> e. 對方不分擔家務及家庭生活費用、所用之方法顯非合理 <br>
+            <input type="checkbox" name="special" value="5"> f. 債務 <br>
+            <input type="checkbox" name="special" value="6"> g. 對方無婚後財產可供分配 <br>
+            <input type="checkbox" name="special" value="7"> h. 對方於言詞辯論日未到場 <br>
+            <input type="checkbox" name="special" value="8"> i. 抵銷抗辯 <br>
+            <input type="checkbox" name="special" value="9"> j. 離婚協議 <br>
+            <input type="checkbox" name="special" value="10"> k. 雙方和解/或調解達成協議<br>
+            <input type="checkbox" name="special" value="11"> l. XXX<br>
+        </fieldset>
+        <fieldset class="form__contact2" id="score" style="width: 150px;">
+            <p>程度(0~10)：</p>
+            <input class="form__field" name="score_0" value="0" disabled>
+            <input class="form__field" name="score_1" value="0" disabled>
+            <input class="form__field" name="score_2" value="0" disabled>
+            <input class="form__field" name="score_3" value="0" disabled>
+            <input class="form__field" name="score_4" value="0" disabled>
+            <input class="form__field" name="score_5" value="0" disabled>
+            <input class="form__field" name="score_6" value="0" disabled>
+            <input class="form__field" name="score_7" value="0" disabled>
+            <input class="form__field" name="score_8" value="0" disabled>
+            <input class="form__field" name="score_9" value="0" disabled>
+            <input class="form__field" name="score_10" value="0" disabled>
+            <input class="form__field" name="score_11" value="0" disabled>
+        </fieldset>
+    </div>
+</form>
+{% else %}
+<input type="hidden" name="sf" value="close">
+{% endif %}

@@ -1,0 +1,60 @@
+{% if sh == 'close' %}
+<input type="hidden" name="sh" value="open">
+<fieldset>
+    <legend> 搜尋不動產 </legend>
+    {{ location.as_p }}
+
+    <p> 搜尋類型：
+    <input type="checkbox" name="sign" value="房地(土地+建物)" checked> 房地
+    <input type="checkbox" name="sign" value="房地(土地+建物)+車位" checked> 房地+車位
+    <input type="checkbox" name="sign" value="土地"> 土地
+    <input type="checkbox" name="sign" value="建物"> 建物
+    <input type="checkbox" name="sign" value="車位"> 車位
+    </p>
+
+    <fieldset>
+        <legend> 條件篩選 </legend><br>
+        路名/地址/地段： <input name="address"> <br><br>
+        <label for="id_type">建物型態：</label>
+        <select name="type" id="id_type">
+            <option value="">不限</option>
+            <option value="套房">套房</option>
+            <option value="公寓">公寓</option>
+            <option value="華廈">華廈</option>
+            <option value="住宅大樓">住宅大樓</option>
+            <option value="透天厝">透天厝</option>
+            <option value="店面">店面</option>
+            <option value="其他">其他</option>
+        </select> <br><br>
+        格局： <input name="room" size="3"> 房 <input name="hall" size="3"> 廳 <input name="bath" size="3"> 衛 (以上) <br><br>
+    </fieldset> <br>
+
+    <label for="id_sort">排序：</label>
+    <select name="sort" id="id_sort">
+        <option value="time_latest">時間最近</option>
+        <option value="time_oldest">時間最遠</option>
+        <option value="price_high">價格最高</option>
+        <option value="price_low">價格最低</option>
+        <option value="area_large">面積最大</option>
+        <option value="area_small">面積最小</option>
+    </select> &emsp;
+    
+    <button type="button" hx-get="result_house" hx-target="#result_house" hx-include="[name='sign'],[name='縣市'], [name='鄉鎮市區'], [name='address'], [name='type'], [name='room'], [name='hall'], [name='bath'], [name='sort']">查詢</button>
+    <button type="button" hx-get="search_house" hx-target="#search_house" onclick="location.href='#'">清除</button>
+    <button type="button" hx-get="search_house" hx-target="#search_house" hx-include="[name='sh']" onclick="location.href='#'">關閉</button></li>
+
+    <div id="result_house">
+        <div>
+            <h3> 行情趨勢 </h3>
+            <p> 成交單價：0 元/坪 <p>
+            <p> 交易量：0 筆 </p>
+        </div>
+        <div>
+            <h3> 交易個案(前50筆) </h3>
+        </div>
+    </div>
+
+</fieldset>
+{% else %}
+<input type="hidden" name="sh" value="close">
+{% endif %}

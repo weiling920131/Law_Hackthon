@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %} 財產分配計算機 {% endblock %}
+{% block content%}
+{% load static %}
+
+<div class="wrapper">
+    <header>
+        <div class="wrapper-header">
+            <img src="{% static 'calculator/image/lawyer.png' %}" width="325" height="250">
+            <div class="bubble-border">
+                <div class="wrapper-text">
+                    <form id="r" hx-post="result" hx-target="#result" hx-trigger="click from:button delay:0.5s">{% csrf_token %}
+                        <div id="result_m">
+                            <p>您的財產為新台幣 0 元，</p>
+                            <input type="hidden" name="m_name" value="您">
+                            <input type="hidden" name="m_sum" value="0">
+                            <input type="hidden" name="ratio" value="0.0">
+                        </div>
+                        <div id="result_f">
+                            <p>對方的財產為新台幣 0 元，</p>
+                            <input type="hidden" name="f_name" value="對方">
+                            <input type="hidden" name="f_sum" value="0">
+                        </div>
+                        <div id="result">
+                            <p>因此，不需分配財產。</p>
+                            <input type="hidden" name="toGive" value="">
+                            <input type="hidden" name="toReceive" value="">
+                            <input type="hidden" name="total" value="0">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="under-header" style="height: 250px;"></div>
+
+    <div class="wrapper-body">
+        <div id="search_stock">
+            <input type="hidden" name="ss" value="close">
+        </div>
+        <div id="search_house">
+            <input type="hidden" name="sh" value="close">
+        </div>
+    </div>
+
+    <div class="wrapper-body">
+        <form class="form__contact" id="m">{% csrf_token %}
+            <fieldset class="form__contact1">
+                <p>我是 <input class="form__field" name="m_name" placeholder="您的名字"></p>
+                <p>以下是我的婚後財產：</p>
+                <li>存&emsp;&emsp;款 NT$ <input class="form__field" name="m_deposit" value="0"></li>
+                <li>保&emsp;&emsp;險 NT$ <input class="form__field" name="m_insurance" value="0"></li>
+                <li>有價證券 NT$ <input class="form__field" name="m_stock" value="0">
+                    <button type="button" hx-get="search_stock" hx-target="#search_stock" hx-include="[name='ss']" onclick="location.href='#'">搜尋 !!</button></li>
+                <li>不&ensp;動&ensp;產 NT$ <input class="form__field" name="m_house" value="0">
+                    <button type="button" hx-get="search_house" hx-target="#search_house" hx-include="[name='sh']" onclick="location.href='#'">搜尋 !!</button></li>
+                <li>動&emsp;&emsp;產 NT$ <input class="form__field" name="m_property" value="0"></li>
+                <li>孳&emsp;&emsp;息 NT$ <input class="form__field" name="m_fructus" value="0"></li>
+                <p>以及我的婚後債務：</p>
+                <li>貸&emsp;&emsp;款 NT$ <input class="form__field" name="m_credit" value="0"></li>
+                <li>借&emsp;&emsp;款 NT$ <input class="form__field" name="m_loan" value="0"></li>
+                <button type="button" hx-get="special_form" hx-target="#special_form" hx-include="[name='sf']" onclick="setTimeout(() => { location.href='#m' }, 100); ">追加特殊因素 !!</button><br>
+                
+                <button type="button" hx-post="result_m" hx-target="#result_m" hx-include="#m, #s" onclick="location.href='#'">提交 &#187;</button>
+            </fieldset>
+        </form>
+    
+        <form class="form__contact" id="f">{% csrf_token %}
+            <fieldset class="form__contact1">
+                <p>他是 <input class="form__field" name="f_name" placeholder="對方的名字"></p>
+                <p>以下是他的婚後財產：</p>
+                <li>存&emsp;&emsp;款 NT$ <input class="form__field" name="f_deposit" value="0"></li>
+                <li>保&emsp;&emsp;險 NT$ <input class="form__field" name="f_insurance" value="0"></li>
+                <li>有價證券 NT$ <input class="form__field" name="f_stock" value="0">
+                    <button type="button" hx-get="search_stock" hx-target="#search_stock" hx-include="[name='ss']" onclick="location.href='#'">搜尋 !!</button></li>
+                <li>不&ensp;動&ensp;產 NT$ <input class="form__field" name="f_house" value="0">
+                    <button type="button" hx-get="search_house" hx-target="#search_house" hx-include="[name='sh']" onclick="location.href='#'">搜尋 !!</button></li>
+                <li>動&emsp;&emsp;產 NT$ <input class="form__field" name="f_property" value="0"></li>
+                <li>孳&emsp;&emsp;息 NT$ <input class="form__field" name="f_fructus" value="0"></li>
+                <p>以及他的婚後債務：</p>
+                <li>貸&emsp;&emsp;款 NT$ <input class="form__field" name="f_credit" value="0"></li>
+                <li>借&emsp;&emsp;款 NT$ <input class="form__field" name="f_loan" value="0"></li><br>
+                <button type="button" hx-post="result_f" hx-target="#result_f" hx-include="#f" onclick="location.href='#'">提交 &#187;</button>
+            </fieldset>
+        </form>
+    </div>
+    <div class="wrapper-body">
+        <div id="special_form">
+            <input type="hidden" name="sf" value="close">
+        </div>
+    </div>    
+</div>
+{% endblock %}

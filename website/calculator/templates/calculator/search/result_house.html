@@ -1,0 +1,32 @@
+
+<div>
+    <h3> 行情趨勢 </h3>
+    <p> 成交單價：{{ avg_price|floatformat:-1 }} 萬元/坪 </p>
+    <p> 交易量：{{ count }} 筆 </p>
+</div>
+
+<div>
+    <h3> 交易個案(前50筆) </h3>
+    <table>
+        <tr>
+            {% for col in df.columns %}
+            <th align='center' valign="middle">
+                &emsp;{{ col }}&emsp;
+            </th>
+            {% endfor %}
+        </tr>
+        {% for index, row in df.iterrows %}
+        <tr>
+            {% for cell in row %}
+            <td align='center' valign="middle">
+                {% if cell|floatformat %}
+                {{ cell|floatformat:-2 }}
+                {% else %}
+                {{ cell }}
+                {% endif %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>

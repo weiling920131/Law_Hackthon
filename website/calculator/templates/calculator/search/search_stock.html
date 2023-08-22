@@ -1,0 +1,13 @@
+{% if ss == 'close' %}
+<input type="hidden" name="ss" value="open">
+<form hx-post="result_stock" hx-target="#result_stock">{% csrf_token %}
+    <h3>搜尋有價證券</h3>
+    <p>證券代號：<input name="index" size=5 required></p>
+    <p>持有股數：<input name="number" size=5 required></p>
+    <input type="submit" value="送出">
+    <button type="button" hx-get="search_stock" hx-target="#search_stock" hx-include="[name='ss']" onclick="location.href='#'">關閉</button></li>
+</form>
+<div id="result_stock"></div>
+{% else %}
+<input type="hidden" name="ss" value="close">
+{% endif %}
