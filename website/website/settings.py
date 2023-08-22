@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "calculator",
-    "crawler_stock",
-    "real_estate",
 ]
 
 MIDDLEWARE = [
