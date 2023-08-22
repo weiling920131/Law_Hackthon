@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "hackthon-396711",
+  "private_key_id": "57515e0c836fa224f9b5d59d499a732d61231ee7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCoqqshoTEzxY1i\nC70P7o16W7TPeHpvOVn5sh2ZKLsxaQjLBiZNSPerHfsLxAN9P1oRSVwQ1ICjIpur\n+LK0rLCHaIACB5gvvQ0u29G33UcvxTakSuxcJwOSDOnqxuqPjFGWqv5F3og1EWAp\nN1ukGWGLgxYSbl8xHic+pMNuX0fTVGWM5zEB4FTPEcMyaYMoxRlkevlmLSOs5sn6\nHuti8+EDM29DirBzKVaJTGQEUUYKRmtd6sQFGCCOhEliZx6VomaP7a4YHLjTVmDY\nLo1ENYNbFYvsfyLJ7e698RpMHDhGuClufLE88XHxogy+bihEqG90JqFWKdL5Rghs\nuorQLTgVAgMBAAECggEAMZ8sg9NZl2KqisrrT5GeW/44/sTyOGDGINkPLi02jX3a\nUWi4wgoSm2xRnI+Je0K1K9rKVEVApz4aUIj1goQ/10aeSnqTgo/7HescExztwZci\n0UkdqqrruP9FnoXxIlRk+I/MCSBEMGCxSs73jhrNgO8LAlcoeFnnr91nhcRQbFKv\n85Vagaz8P0k/ZEXsK8dCOU+8q2KmuFYuFe2SS7KMm0KKySmPzivX2JiYvTRL6mCJ\n7Q2602ycPUNq4SG1INaCvfLuZq7LmSVX28PF5A8q3HCK5LXwRRGpqIkzQUzeQZG/\nOUraA1QI7q+xZz9JV/4ZAjotkNB5XFNAuv3pvcrnDQKBgQDqxO+sOvQzbus9WOWO\nSxuhr8FfXeLBIfTcHb/H2CTDpuUgLzRVxcL+EjFg6FVoC/Xb+B6L+gq6pLkl6fKM\nNE5yRcskDz03yuytp62EQx7O2IwMDz6Wbp3MnbYp5sCQN/MQ3EswwI01Ly1ewZS4\n1nwRboUlbRkv1aIA9ozFlkjtswKBgQC362nLnHR557f3he445x99WsInDJaRnGtY\nOVgPHj4RuAlzvfa31aXj/aODBpErRZFqc8iHiE4F9bHNtHzTq7m+Z3Sg0tu6w3Ag\nSathkPKa6pzXEPuZcrH9ox6zckZ1X1LH7/hWx4phLtfwj5uRgnEhaB6V7x5xf3wu\n5FvVPhQvFwKBgA6Skt35+taGeAuizPz8JIbwxewJg93BIdXX8uOQwxdx8J8CzxjT\n4bqrnm0JfuOqemRhDmRZ7PiQ6P01fFy/km79bhKa743bBr3wvpCLKgpk3qyQ9a2Y\nyCq/T2Nic2mAT5IoWnJ4QUuf1g0frv+aMLFUTud30ixp8lhk9W/+WCCJAoGAONE7\nD7G3selJxefUHjQYYEtna1TSNw2Rg+HDOHhpSGQIV3859rTD2NkEaHfg5PNK5w35\nxxTutZyfXyMA5QtKCG5Bc2VwiBPUUcUwcqWqrP0Jks8mStNJ9UctNtZ4uc3G7wlN\nONHQCBHGmARlVOBtPprByCPkzb9Kh9n4HLpe1eUCgYB10cKDJZKVzcMcozse7/Jn\nOTXxV++HOwsDh1O8wMzUrNgunOWa3A3UsRG2mvzwVfROfMwQayyTjTVsnttlAKsi\nhMLHmSGGsEGro7rsoff1Wt8TGTE+GmOupQxCxNnQ+vHERCfj8ZZ6xGF1c3sjpxly\nzmz94sc68oiyABUknGDaAQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "weiling920131-cs10-nycu-edu-tw@hackthon-396711.iam.gserviceaccount.com",
+  "client_id": "103460068521064557060",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/weiling920131-cs10-nycu-edu-tw%40hackthon-396711.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
