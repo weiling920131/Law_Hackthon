@@ -25,7 +25,10 @@ def resultView(request):
     toReceive = f_name if m_sum >= f_sum else m_name
     total = m_sum - f_sum if toGive == m_name  else f_sum - m_sum
     result = round(total / 2)
-    special_result = round(total * (1 - ratio))
+    if toGive == m_name:
+        special_result = round(total * ratio)
+    else:
+        special_result = round(total * (1 - ratio))
 
     return render(request, 'calculator/result.html', locals())
 

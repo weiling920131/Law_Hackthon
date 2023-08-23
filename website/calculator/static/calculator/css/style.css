@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Kalam");
 @import url("https://fonts.googleapis.com/css?family=Noto+Serif+TC:light&subset=chinese-traditional");
 
+
 body {
   width: 100vw;
   height: 100%;
@@ -21,13 +22,11 @@ header {
   height: 250px;
   background-color: #003049;
 }
-
 .wrapper-header {
   display: flex;
   justify-content: center;
   align-items: center
 }
-
 .bubble-border {
   display: flex;
   width: 500px;
@@ -57,7 +56,6 @@ header {
   left: -33px;
   border-right: 20px solid #ffffff;
 }
-
 .wrapper-text {
   display: inline-block;
   color: #333;
@@ -71,8 +69,8 @@ header {
   display: flex;
   justify-content: center;
   margin: 20px auto;
+  font-family: "Kalam", "Noto Serif TC", serif;
 }
-
 .form__contact {
   display: inline-block;
   width: 500px;
@@ -143,7 +141,6 @@ header {
   line-height: 40px;
 }
 
-
 .form__field {
   display: inline;
   outline: none;
@@ -154,13 +151,13 @@ header {
   color: #2888c4;
   font-family: "Kalam", "Noto Serif TC:light", serif;
 }
-
 input::placeholder {
   color: #2888c4;
 }
 input:disabled {
   color: #aaa;
 }
+
 
 svg {
   display: none;

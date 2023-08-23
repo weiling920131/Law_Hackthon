@@ -1,31 +1,8 @@
-<!-- {% if total != 0 %}
+{% if total != 0 %}
     <p>因此，{{ toGive }}須給付{{ toReceive }}新台幣 {{ result }} 元。</p>
-    <input type="hidden" name="toGive" value="{{ toGive }}">
-    <input type="hidden" name="toReceive" value="{{ toReceive }}">
-    <input type="hidden" name="total" value="{{ total }}">
     {% if ratio != 0 %}
         <p>考量特殊因素，{{ toGive }}須給付{{ toReceive }}新台幣 {{ special_result }} 元。</p>
     {% endif %}
 {% else %}
     <p>因此，不需分配財產。</p>
-    <input type="hidden" name="toGive" value="">
-    <input type="hidden" name="toReceive" value="">
-    <input type="hidden" name="total" value="0">
 {% endif %}
- -->
-
-{% if total != 0 %}
-    <p>因此，{{ m_name }}可分配到新台幣 {{ result }} 元。</p>
-    <input type="hidden" name="toGive" value="{{ toGive }}">
-    <input type="hidden" name="toReceive" value="{{ toReceive }}">
-    <input type="hidden" name="total" value="{{ total }}">
-    {% if ratio != 0 %}
-        <p>考量特殊因素，{{ m_name }}可分配到新台幣 {{ special_result }} 元。</p>
-    {% endif %}
-{% else %}
-    <p>因此，不需分配財產。</p>
-    <input type="hidden" name="toGive" value="">
-    <input type="hidden" name="toReceive" value="">
-    <input type="hidden" name="total" value="0">
-{% endif %}
-
