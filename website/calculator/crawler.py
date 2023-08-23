@@ -3,7 +3,7 @@ import os
 import zipfile
 import time
 import pandas as pd
-
+import shutil
 
 pd.set_option('use_inf_as_na', True)
 
@@ -14,6 +14,8 @@ renameCol = {
 cols = [
     '縣市', '鄉鎮市區', '地址地號', '交易日期', '總價元', '單價元坪', '總面積坪', '交易標的', '建物型態', '建築完成年', '房', '廳', '衛', '車位類別'
 ]
+
+path = 'calculator/data/real_estate'
 
 
 def full2half(s):
@@ -31,7 +33,7 @@ def full2half(s):
 
 def crawler(year, season):
     # make additional folder for files to extract
-    folder = 'calculator/data/real_estate/raw/' + str(year) + str(season)
+    folder = os.path.join(path, 'raw/' + str(year) + str(season)) 
     if not os.path.isdir(folder):
         os.mkdir(folder)
 
@@ -39,7 +41,7 @@ def crawler(year, season):
         res = requests.get("https://plvr.land.moi.gov.tw//DownloadSeason?season="+str(year)+"S"+str(season)+"&type=zip&fileName=lvr_landcsv.zip")
 
         # save content to file
-        fname = 'calculator/data/real_estate/raw/' + str(year) + str(season) + '.zip'
+        fname = folder + '.zip'
         open(fname, 'wb').write(res.content)
 
         # extract files to the folder
@@ -53,14 +55,14 @@ def crawler(year, season):
 
 def load(dist):
     print(dist)
-    path = 'calculator/data/real_estate/raw'
-    dirs = [d for d in os.listdir(path)]
+    dpath = os.path.join(path, 'raw')
+    dirs = [d for d in os.listdir(dpath)]
 
     dfs = []
     dfs_build = []
 
     for d in dirs:
-        d = os.path.join(path, d)
+        d = os.path.join(dpath, d)
         
         d1 = os.path.join(d, dist + '_lvr_land_a.csv')
         df = pd.read_csv(d1)
@@ -116,17 +118,26 @@ def load(dist):
     df.reset_index(drop=True, inplace=True)
     
     # 存成csv檔
-    df.to_csv('calculator/data/real_estate/' + dist + '.csv', encoding='utf_8_sig') 
+    df.to_csv(os.path.join(path, dist + '.csv'), encoding='utf_8_sig') 
 
 
+def crawl():
+    dpath = os.path.join(path, 'raw')
+    if not os.path.isdir(dpath):
+        os.mkdir(dpath)
 
-# for y in range(110, 112):
-#     for s in range(1, 5):
-#         crawler(y, s)
+    for y in range(110, 112):
+        for s in range(1, 5):
+            crawler(y, s)
+
+    for i in range(ord('a'), ord('z') + 1):
+        dist = chr(i)
+        if(dist == 'l' or dist == 'r' or dist == 's' or dist == 'y'):
+            continue
+        load(dist)
+
+    shutil.rmtree(dpath)
+    os.mkdir(dpath)
 
 
-for i in range(ord('a'), ord('z') + 1):
-    dist = chr(i)
-    if(dist == 'l' or dist == 'r' or dist == 's' or dist == 'y'):
-        continue
-    load(dist)
+crawl()
