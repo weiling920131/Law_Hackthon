@@ -5,7 +5,7 @@
         <div style="margin-left: 1em;">
             <form hx-post="result_stock" hx-target="#result_stock">{% csrf_token %}
                 <h3>搜尋有價證券</h3>
-                <p>證券代號：<input class="form__field" name="index" style="width: 70px; height: 18px;" placeholder="1101up" required></p>
+                <p>證券代號：<input class="form__field" name="index" style="width: 70px; height: 18px;" placeholder="XXXX" required></p>
                 <p>持有股數：<input class="form__field" name="number" style="width: 70px; height: 18px;" placeholder="0" required></p>
                 <br><br><br>
                 <button type="submit">查詢&#187;</button>
