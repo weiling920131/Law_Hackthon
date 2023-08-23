@@ -35,25 +35,28 @@ def resultView(request):
 def result_m(request):
     male = {
         'name': request.POST.get('m_name', '您'),
-        'deposit': int(request.POST.get('m_deposit', 0)),
-        'insurance': int(request.POST.get('m_insurance', 0)),
-        'stock': int(request.POST.get('m_stock', 0)),
-        'house': int(request.POST.get('m_house', 0)),
-        'property': int(request.POST.get('m_property', 0)),
-        'fructus': int(request.POST.get('m_fructus', 0)),
-        'credit': int(request.POST.get('m_credit', 0)),
-        'loan': int(request.POST.get('m_loan', 0)),
+        'deposit': request.POST.get('m_deposit', 0),
+        'insurance': request.POST.get('m_insurance', 0),
+        'stock': request.POST.get('m_stock', 0),
+        'house': request.POST.get('m_house', 0),
+        'property': request.POST.get('m_property', 0),
+        'fructus': request.POST.get('m_fructus', 0),
+        'credit': request.POST.get('m_credit', 0),
+        'loan': request.POST.get('m_loan', 0),
     }
-    if male['name'] == '':
-        male['name'] = '您'
     m_sum = 0
-    for k, v in male.items():
+    for k in male.keys():
         if k =='name':
-            continue
-        elif k == 'credit' or k == 'loan':
-            m_sum -= v
+            if male[k] == '':
+                male[k] = '您'
         else:
-            m_sum += v
+            if male[k] == '':
+                male[k] = 0
+            male[k] = int(male[k])
+            if k == 'credit' or k == 'loan':
+                m_sum -= male[k]
+            else:
+                m_sum += male[k]
 
     score = []
     for i in range(number_of_factor):
@@ -63,7 +66,7 @@ def result_m(request):
         score.append(int(s))
     print(score)
     if score == [0] * number_of_factor:
-        ratio = 0.0
+        ratio = -1
     else:
         ratio = get_ratio(score)
     print('ratio', ratio)
@@ -73,26 +76,29 @@ def result_m(request):
 def result_f(request):
     female = {
         'name': request.POST.get('f_name', '對方'),
-        'deposit': int(request.POST.get('f_deposit', 0)),
-        'insurance': int(request.POST.get('f_insurance', 0)),
-        'stock': int(request.POST.get('f_stock', 0)),
-        'house': int(request.POST.get('f_house', 0)),
-        'property': int(request.POST.get('f_property', 0)),
-        'fructus': int(request.POST.get('f_fructus', 0)),
-        'credit': int(request.POST.get('f_credit', 0)),
-        'loan': int(request.POST.get('f_loan', 0)),
+        'deposit': request.POST.get('f_deposit', 0),
+        'insurance': request.POST.get('f_insurance', 0),
+        'stock': request.POST.get('f_stock', 0),
+        'house': request.POST.get('f_house', 0),
+        'property': request.POST.get('f_property', 0),
+        'fructus': request.POST.get('f_fructus', 0),
+        'credit': request.POST.get('f_credit', 0),
+        'loan': request.POST.get('f_loan', 0),
     }
-    if female['name'] == '':
-        female['name'] = '對方'
     
     f_sum = 0
-    for k, v in female.items():
+    for k in female.keys():
         if k =='name':
-            continue
-        elif k == 'credit' or k == 'loan':
-            f_sum -= v
+            if female[k] == '':
+                female[k] = '對方'
         else:
-            f_sum += v
+            if female[k] == '':
+                female[k] = 0
+            female[k] = int(female[k])
+            if k == 'credit' or k == 'loan':
+                f_sum -= female[k]
+            else:
+                f_sum += female[k]
 
     return render(request, 'calculator/result_f.html', locals())
 

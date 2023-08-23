@@ -23,9 +23,6 @@
                         </div>
                         <div id="result">
                             <p>因此，不需分配財產。</p>
-                            <input type="hidden" name="toGive" value="">
-                            <input type="hidden" name="toReceive" value="">
-                            <input type="hidden" name="total" value="0">
                         </div>
                     </form>
                 </div>
@@ -34,13 +31,17 @@
     </header>
     <div class="under-header" style="height: 250px;"></div>
 
-    <div class="wrapper-body">
-        <div id="search_stock">
-            <input type="hidden" name="ss" value="close">
-        </div>
-        <div id="search_house">
-            <input type="hidden" name="sh" value="close">
-        </div>
+    <div class="post-it">
+        <ul>
+            <div id="search_stock">
+                <input type="hidden" name="ss" value="close">
+            </div>
+        </ul>
+        <ul>
+            <div id="search_house">
+                <input type="hidden" name="sh" value="close">
+            </div>
+        </ul>
     </div>
 
     <div class="wrapper-body">
@@ -48,20 +49,20 @@
             <fieldset class="form__contact1">
                 <p>我是 <input class="form__field" name="m_name" placeholder="您的名字"></p>
                 <p>以下是我的婚後財產：</p>
-                <li>存&emsp;&emsp;款 NT$ <input class="form__field" name="m_deposit" value="0"></li>
-                <li>保&emsp;&emsp;險 NT$ <input class="form__field" name="m_insurance" value="0"></li>
-                <li>有價證券 NT$ <input class="form__field" name="m_stock" value="0">
+                <li>存&emsp;&emsp;款 NT$ <input class="form__field" name="m_deposit" placeholder="0"></li>
+                <li>保&emsp;&emsp;險 NT$ <input class="form__field" name="m_insurance" placeholder="0"></li>
+                <li>有價證券 NT$ <input class="form__field" name="m_stock" placeholder="0">
                     <button type="button" hx-get="search_stock" hx-target="#search_stock" hx-include="[name='ss']" onclick="location.href='#'">搜尋 !!</button></li>
-                <li>不&ensp;動&ensp;產 NT$ <input class="form__field" name="m_house" value="0">
+                <li>不&ensp;動&ensp;產 NT$ <input class="form__field" name="m_house" placeholder="0">
                     <button type="button" hx-get="search_house" hx-target="#search_house" hx-include="[name='sh']" onclick="location.href='#'">搜尋 !!</button></li>
-                <li>動&emsp;&emsp;產 NT$ <input class="form__field" name="m_property" value="0"></li>
-                <li>孳&emsp;&emsp;息 NT$ <input class="form__field" name="m_fructus" value="0"></li>
+                <li>動&emsp;&emsp;產 NT$ <input class="form__field" name="m_property" placeholder="0"></li>
+                <li>孳&emsp;&emsp;息 NT$ <input class="form__field" name="m_fructus" placeholder="0"></li>
                 <p>以及我的婚後債務：</p>
-                <li>貸&emsp;&emsp;款 NT$ <input class="form__field" name="m_credit" value="0"></li>
-                <li>借&emsp;&emsp;款 NT$ <input class="form__field" name="m_loan" value="0"></li>
+                <li>貸&emsp;&emsp;款 NT$ <input class="form__field" name="m_credit" placeholder="0"></li>
+                <li>借&emsp;&emsp;款 NT$ <input class="form__field" name="m_loan" placeholder="0"></li>
                 <button type="button" hx-get="special_form" hx-target="#special_form" hx-include="[name='sf']" onclick="setTimeout(() => { location.href='#m' }, 100); ">追加特殊因素 !!</button><br>
                 
-                <button type="button" hx-post="result_m" hx-target="#result_m" hx-include="#m, #s" onclick="location.href='#'">提交 &#187;</button>
+                <button type="button" hx-post="result_m" hx-target="#result_m" hx-include="#m, #s">提交 &#187;</button>
             </fieldset>
         </form>
     
@@ -69,18 +70,18 @@
             <fieldset class="form__contact1">
                 <p>他是 <input class="form__field" name="f_name" placeholder="對方的名字"></p>
                 <p>以下是他的婚後財產：</p>
-                <li>存&emsp;&emsp;款 NT$ <input class="form__field" name="f_deposit" value="0"></li>
-                <li>保&emsp;&emsp;險 NT$ <input class="form__field" name="f_insurance" value="0"></li>
-                <li>有價證券 NT$ <input class="form__field" name="f_stock" value="0">
+                <li>存&emsp;&emsp;款 NT$ <input class="form__field" name="f_deposit" placeholder="0"></li>
+                <li>保&emsp;&emsp;險 NT$ <input class="form__field" name="f_insurance" placeholder="0"></li>
+                <li>有價證券 NT$ <input class="form__field" name="f_stock" placeholder="0">
                     <button type="button" hx-get="search_stock" hx-target="#search_stock" hx-include="[name='ss']" onclick="location.href='#'">搜尋 !!</button></li>
-                <li>不&ensp;動&ensp;產 NT$ <input class="form__field" name="f_house" value="0">
+                <li>不&ensp;動&ensp;產 NT$ <input class="form__field" name="f_house" placeholder="0">
                     <button type="button" hx-get="search_house" hx-target="#search_house" hx-include="[name='sh']" onclick="location.href='#'">搜尋 !!</button></li>
-                <li>動&emsp;&emsp;產 NT$ <input class="form__field" name="f_property" value="0"></li>
-                <li>孳&emsp;&emsp;息 NT$ <input class="form__field" name="f_fructus" value="0"></li>
+                <li>動&emsp;&emsp;產 NT$ <input class="form__field" name="f_property" placeholder="0"></li>
+                <li>孳&emsp;&emsp;息 NT$ <input class="form__field" name="f_fructus" placeholder="0"></li>
                 <p>以及他的婚後債務：</p>
-                <li>貸&emsp;&emsp;款 NT$ <input class="form__field" name="f_credit" value="0"></li>
-                <li>借&emsp;&emsp;款 NT$ <input class="form__field" name="f_loan" value="0"></li><br>
-                <button type="button" hx-post="result_f" hx-target="#result_f" hx-include="#f" onclick="location.href='#'">提交 &#187;</button>
+                <li>貸&emsp;&emsp;款 NT$ <input class="form__field" name="f_credit" placeholder="0"></li>
+                <li>借&emsp;&emsp;款 NT$ <input class="form__field" name="f_loan" placeholder="0"></li><br>
+                <button type="button" hx-post="result_f" hx-target="#result_f" hx-include="#f">提交 &#187;</button>
             </fieldset>
         </form>
     </div>

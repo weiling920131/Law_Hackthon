@@ -1,13 +1,29 @@
 {% if ss == 'close' %}
 <input type="hidden" name="ss" value="open">
-<form hx-post="result_stock" hx-target="#result_stock">{% csrf_token %}
-    <h3>搜尋有價證券</h3>
-    <p>證券代號：<input name="index" size=5 required></p>
-    <p>持有股數：<input name="number" size=5 required></p>
-    <input type="submit" value="送出">
-    <button type="button" hx-get="search_stock" hx-target="#search_stock" hx-include="[name='ss']" onclick="location.href='#'">關閉</button></li>
-</form>
-<div id="result_stock"></div>
+<li>
+    <span>
+        <div style="margin-left: 1em;">
+            <form hx-post="result_stock" hx-target="#result_stock">{% csrf_token %}
+                <h3>搜尋有價證券</h3>
+                <p>證券代號：<input class="form__field" name="index" style="width: 70px; height: 18px;" placeholder="1101up" required></p>
+                <p>持有股數：<input class="form__field" name="number" style="width: 70px; height: 18px;" placeholder="0" required></p>
+                <br><br><br>
+                <button type="submit">查詢&#187;</button>
+            </form>
+        </div>
+    </span>
+</li>
+<li>
+    <span>
+        <div id="result_stock" style="margin-left: 1em;">
+            <h3>行情趨勢</h3>
+            <p>證券名稱：--</p>
+            <p>總價值：0 元</p>
+            <p>收盤價格：0 元</p>
+            <p>-- 年 -- 月 -- 日</p>
+        </div>
+    </span>
+</li>
 {% else %}
 <input type="hidden" name="ss" value="close">
 {% endif %}

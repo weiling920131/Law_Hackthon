@@ -1,6 +1,6 @@
 {% if total != 0 %}
     <p>因此，{{ toGive }}須給付{{ toReceive }}新台幣 {{ result }} 元。</p>
-    {% if ratio != 0 %}
+    {% if ratio != -1 %}
         <p>考量特殊因素，{{ toGive }}須給付{{ toReceive }}新台幣 {{ special_result }} 元。</p>
     {% endif %}
 {% else %}
