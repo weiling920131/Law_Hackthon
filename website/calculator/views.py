@@ -131,9 +131,13 @@ def crawl_price(index):
     r = requests.get('http://www.twse.com.tw/exchangeReport/MI_INDEX?response=csv&date=' + str(date).replace('-','') + '&type=ALL')
 
     ret = pd.read_csv(StringIO("\n".join([i.translate({ord(c): None for c in ' '}) 
-                                        for i in r.text.split('\n') 
-                                        if len(i.split('",')) == 17 and i[0] != '='])), header=0)
+                                    for i in r.text.split('\n') 
+                                    if len(i.split('",')) == 17])), header=0)
+
+    ret.loc[ret['證券代號'].str.startswith('='), '證券代號'] = ret.loc[ret['證券代號'].str.startswith('='), '證券代號'].str.split('"').str[1]
+    ret.replace('--', 0, inplace=True)
     ret = ret.set_index('證券代號')
+    
     return ret.loc[index], date.date()
 
 def search_stock(request):
